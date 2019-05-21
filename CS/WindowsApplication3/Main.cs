@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Globalization;
 using DevExpress.XtraEditors;
-
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace DXSample {
     public partial class Main: XtraForm {
@@ -16,8 +16,7 @@ namespace DXSample {
         }
        
         private void OnFormLoad(object sender, EventArgs e) {
-            // TODO: This line of code loads data into the 'nwindDataSet.Orders' table. You can move, or remove it, as needed.
-            this.ordersTableAdapter.Fill(this.nwindDataSet.Orders);
+            myGridControl1.DataSource = DataHelper.CreateTable();
         }
     }
 }

@@ -1,6 +1,4 @@
-Imports Microsoft.VisualBasic
-Imports System
-Namespace DXSample
+﻿Namespace DXSample
 	Partial Public Class Main
 		''' <summary>
 		''' Required designer variable.
@@ -28,8 +26,6 @@ Namespace DXSample
 			Me.components = New System.ComponentModel.Container()
 			Me.defaultLookAndFeel1 = New DevExpress.LookAndFeel.DefaultLookAndFeel(Me.components)
 			Me.myGridControl1 = New DXSample.MyGridControl()
-			Me.ordersBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-			Me.nwindDataSet = New DXSample.nwindDataSet()
 			Me.myGridView1 = New DXSample.MyGridView()
 			Me.colOrderID = New DevExpress.XtraGrid.Columns.GridColumn()
 			Me.colOrderDate = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -38,10 +34,7 @@ Namespace DXSample
 			Me.colFreight = New DevExpress.XtraGrid.Columns.GridColumn()
 			Me.colShipCity = New DevExpress.XtraGrid.Columns.GridColumn()
 			Me.myGridView2 = New DXSample.MyGridView()
-			Me.ordersTableAdapter = New DXSample.nwindDataSetTableAdapters.OrdersTableAdapter()
 			CType(Me.myGridControl1, System.ComponentModel.ISupportInitialize).BeginInit()
-			CType(Me.ordersBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-			CType(Me.nwindDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
 			CType(Me.myGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
 			CType(Me.myGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
 			Me.SuspendLayout()
@@ -52,7 +45,6 @@ Namespace DXSample
 			' 
 			' myGridControl1
 			' 
-			Me.myGridControl1.DataSource = Me.ordersBindingSource
 			Me.myGridControl1.Dock = System.Windows.Forms.DockStyle.Fill
 			Me.myGridControl1.Location = New System.Drawing.Point(0, 0)
 			Me.myGridControl1.MainView = Me.myGridView1
@@ -60,16 +52,6 @@ Namespace DXSample
 			Me.myGridControl1.Size = New System.Drawing.Size(846, 531)
 			Me.myGridControl1.TabIndex = 0
 			Me.myGridControl1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() { Me.myGridView1, Me.myGridView2})
-			' 
-			' ordersBindingSource
-			' 
-			Me.ordersBindingSource.DataMember = "Orders"
-			Me.ordersBindingSource.DataSource = Me.nwindDataSet
-			' 
-			' nwindDataSet
-			' 
-			Me.nwindDataSet.DataSetName = "nwindDataSet"
-			Me.nwindDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
 			' 
 			' myGridView1
 			' 
@@ -125,10 +107,6 @@ Namespace DXSample
 			Me.myGridView2.GridControl = Me.myGridControl1
 			Me.myGridView2.Name = "myGridView2"
 			' 
-			' ordersTableAdapter
-			' 
-			Me.ordersTableAdapter.ClearBeforeFill = True
-			' 
 			' Main
 			' 
 			Me.AutoScaleDimensions = New System.Drawing.SizeF(6F, 13F)
@@ -138,10 +116,9 @@ Namespace DXSample
 			Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
 			Me.Name = "Main"
 			Me.Text = "Custom Auto Row Filter"
-'			Me.Load += New System.EventHandler(Me.OnFormLoad);
+'INSTANT VB NOTE: The following InitializeComponent event wireup was converted to a 'Handles' clause:
+'ORIGINAL LINE: this.Load += new System.EventHandler(this.OnFormLoad);
 			CType(Me.myGridControl1, System.ComponentModel.ISupportInitialize).EndInit()
-			CType(Me.ordersBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-			CType(Me.nwindDataSet, System.ComponentModel.ISupportInitialize).EndInit()
 			CType(Me.myGridView1, System.ComponentModel.ISupportInitialize).EndInit()
 			CType(Me.myGridView2, System.ComponentModel.ISupportInitialize).EndInit()
 			Me.ResumeLayout(False)
@@ -154,9 +131,6 @@ Namespace DXSample
 		Private myGridControl1 As MyGridControl
 		Private myGridView1 As MyGridView
 		Private myGridView2 As MyGridView
-		Private nwindDataSet As nwindDataSet
-		Private ordersBindingSource As System.Windows.Forms.BindingSource
-		Private ordersTableAdapter As DXSample.nwindDataSetTableAdapters.OrdersTableAdapter
 		Private colOrderID As DevExpress.XtraGrid.Columns.GridColumn
 		Private colOrderDate As DevExpress.XtraGrid.Columns.GridColumn
 		Private colRequiredDate As DevExpress.XtraGrid.Columns.GridColumn

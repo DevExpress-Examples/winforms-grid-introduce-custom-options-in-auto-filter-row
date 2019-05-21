@@ -26,8 +26,6 @@ namespace DXSample {
             this.components = new System.ComponentModel.Container();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.myGridControl1 = new DXSample.MyGridControl();
-            this.ordersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.nwindDataSet = new DXSample.nwindDataSet();
             this.myGridView1 = new DXSample.MyGridView();
             this.colOrderID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colOrderDate = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -36,10 +34,7 @@ namespace DXSample {
             this.colFreight = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colShipCity = new DevExpress.XtraGrid.Columns.GridColumn();
             this.myGridView2 = new DXSample.MyGridView();
-            this.ordersTableAdapter = new DXSample.nwindDataSetTableAdapters.OrdersTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.myGridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nwindDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myGridView2)).BeginInit();
             this.SuspendLayout();
@@ -50,7 +45,6 @@ namespace DXSample {
             // 
             // myGridControl1
             // 
-            this.myGridControl1.DataSource = this.ordersBindingSource;
             this.myGridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.myGridControl1.Location = new System.Drawing.Point(0, 0);
             this.myGridControl1.MainView = this.myGridView1;
@@ -60,16 +54,6 @@ namespace DXSample {
             this.myGridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.myGridView1,
             this.myGridView2});
-            // 
-            // ordersBindingSource
-            // 
-            this.ordersBindingSource.DataMember = "Orders";
-            this.ordersBindingSource.DataSource = this.nwindDataSet;
-            // 
-            // nwindDataSet
-            // 
-            this.nwindDataSet.DataSetName = "nwindDataSet";
-            this.nwindDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // myGridView1
             // 
@@ -131,10 +115,6 @@ namespace DXSample {
             this.myGridView2.GridControl = this.myGridControl1;
             this.myGridView2.Name = "myGridView2";
             // 
-            // ordersTableAdapter
-            // 
-            this.ordersTableAdapter.ClearBeforeFill = true;
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -146,8 +126,6 @@ namespace DXSample {
             this.Text = "Custom Auto Row Filter";
             this.Load += new System.EventHandler(this.OnFormLoad);
             ((System.ComponentModel.ISupportInitialize)(this.myGridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nwindDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.myGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.myGridView2)).EndInit();
             this.ResumeLayout(false);
@@ -160,9 +138,6 @@ namespace DXSample {
         private MyGridControl myGridControl1;
         private MyGridView myGridView1;
         private MyGridView myGridView2;
-        private nwindDataSet nwindDataSet;
-        private System.Windows.Forms.BindingSource ordersBindingSource;
-        private DXSample.nwindDataSetTableAdapters.OrdersTableAdapter ordersTableAdapter;
         private DevExpress.XtraGrid.Columns.GridColumn colOrderID;
         private DevExpress.XtraGrid.Columns.GridColumn colOrderDate;
         private DevExpress.XtraGrid.Columns.GridColumn colRequiredDate;
