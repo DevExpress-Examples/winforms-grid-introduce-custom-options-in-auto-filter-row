@@ -3,18 +3,58 @@
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/E3148)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
-<!-- default file list -->
-*Files to look at*:
+
+# WinForms Data Grid - Implement new filter options in the Auto Filter Row
+
+This example creates a custom grid control (`MyGridControl`) to introduce new filter options. Users can use the following operands to filter DateTime values in columns using the Auto Filter Row: "<", ">", ">=", "<=".
+
+See the implementation of the `GridView.CreateAutoFilterCriterion` method:
+
+```csharp
+protected override DevExpress.Data.Filtering.CriteriaOperator CreateAutoFilterCriterion(DevExpress.XtraGrid.Columns.GridColumn column, DevExpress.XtraGrid.Columns.AutoFilterCondition condition, object _value, string strVal) {
+    if (column.ColumnType == typeof(DateTime) && strVal.Length > 0) {
+        BinaryOperatorType type = BinaryOperatorType.Equal;
+        string operand = string.Empty;
+        if (strVal.Length > 1) {
+            operand = strVal.Substring(0, 2);
+            if (operand.Equals(">="))
+                type = BinaryOperatorType.GreaterOrEqual;
+            else if (operand.Equals("<="))
+                type = BinaryOperatorType.LessOrEqual;
+        }
+        if (type == BinaryOperatorType.Equal) {
+            operand = strVal.Substring(0, 1);
+            if (operand.Equals(">"))
+                type = BinaryOperatorType.Greater;
+            else if (operand.Equals("<"))
+                type = BinaryOperatorType.Less;
+        }
+        if (type != BinaryOperatorType.Equal) {
+            string val = strVal.Replace(operand, string.Empty);
+            try {
+                DateTime dt = DateTime.ParseExact(val, "d", column.RealColumnEdit.EditFormat.Format);
+                return new BinaryOperator(column.FieldName, dt, type);
+            }
+            catch {
+                return null;
+            }
+        }
+    }
+    return base.CreateAutoFilterCriterion(column, condition, _value, strVal);
+}
+```
+
+
+## Files to Review
 
 * [CustomGrid.cs](./CS/WindowsApplication3/CustomGrid.cs) (VB: [CustomGrid.vb](./VB/WindowsApplication3/CustomGrid.vb))
-* [Main.cs](./CS/WindowsApplication3/Main.cs) (VB: [Main.vb](./VB/WindowsApplication3/Main.vb))
-* [Program.cs](./CS/WindowsApplication3/Program.cs) (VB: [Program.vb](./VB/WindowsApplication3/Program.vb))
-<!-- default file list end -->
-# Custom GridControl - How to implement your own logic for filtering data in an auto filter row
 
 
-<p>This example illustrates how to create a custom grid to customize the mechanism of filtering data via the auto filter row. For this, the <strong>GridView.CreateAutoFilterCriterion method</strong><strong> </strong>is overridden. </p><p>This example demonstrates how to filter DateTime values in columns via the auto filter row by using the additional "<", ">", ">=" and "<=" filter operands.</p>
+## Documentation
 
-<br/>
+* [Filter and Search](https://docs.devexpress.com/WindowsForms/114635/controls-and-libraries/data-grid/filter-and-search)
 
 
+## See Also
+
+* [Examples: Filtering Records](https://docs.devexpress.com/WindowsForms/3014/controls-and-libraries/data-grid/examples/filtering/examples-filtering-records)
