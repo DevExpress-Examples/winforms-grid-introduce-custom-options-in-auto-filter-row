@@ -60,7 +60,7 @@ protected override DevExpress.Data.Filtering.CriteriaOperator CreateAutoFilterCr
 
 * [Examples: Filtering Records](https://docs.devexpress.com/WindowsForms/3014/controls-and-libraries/data-grid/examples/filtering/examples-filtering-records)
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=winforms-grid-introduce-custom-options-in-auto-filter-row&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=winforms-grid-introduce-custom-options-in-auto-filter-row&~~~was_helpful=no)
 
